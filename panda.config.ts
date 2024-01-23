@@ -12,7 +12,18 @@ export default defineConfig({
 
   // Useful for theme customization
   theme: {
-    extend: {},
+    extend: {
+      tokens: {
+        colors: {
+          main : {value : "#63A6F7"},
+          accent : {value : "#FCFA68"},
+          red : {value : "#FF7878"},
+          base : {value : "#FAFCFF"},
+          fontColor : {value : "#100F0F"},
+          gray:{value: "rgba(92, 90, 90, 0.06)"},
+        }
+      }
+    }
   },
 
   // The output directory for your css system

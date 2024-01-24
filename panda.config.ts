@@ -15,12 +15,12 @@ export default defineConfig({
     extend: {
       tokens: {
         colors: {
-          main : {value : "#63A6F7"},
-          accent : {value : "#FCFA68"},
-          red : {value : "#FF7878"},
+          main : {value : "#F57F17"},
+          accent : {value : "#86E58A"},
+          red : {value : "#F15742"},
           base : {value : "#FAFCFF"},
           fontColor : {value : "#100F0F"},
-          gray:{value: "rgba(92, 90, 90, 0.06)"},
+          gray:{value: "#D9D9D9"},
         }
       }
     }

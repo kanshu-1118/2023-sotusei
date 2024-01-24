@@ -8,10 +8,8 @@ import {
     useCreateUserWithEmailAndPassword,
     useSignInWithEmailAndPassword,
 } from "react-firebase-hooks/auth";
-import { doc, setDoc, getDoc } from "firebase/firestore";
-import { db } from "@/lib/firebase/index";
-import { center, flex } from "../../../styled-system/patterns";
-import { css } from "../../../styled-system/css";
+import { center, flex } from "../../../../styled-system/patterns";
+import { css } from "../../../../styled-system/css";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -59,38 +57,42 @@ export default function LoginPage() {
                 />
             </div>
             <div>{error && <p>メールアドレスかパスワードが間違っています。もう一度誤入力お願いいたします。</p>}</div>
-                    <button
-                        className={css({
-                            bgColor:"base",
-                            w:"150px",
-                            padding:"8px 0",
-                            fontWeight:"bold",
-                            color:"main",
-                            border:"3px solid",
-                            borderRadius:"8px",
-                            })}
-                        onClick={async (e) => {
-                            e.preventDefault();
-                            setIsLoading(true);
-                            const user = await createUserWithEmailAndPassword(email, password);
-                            if (!user) throw new Error("user is null");
-                            // const userdata = user;
-                            // const docRef = doc(db, "users", userdata.uid);
-                            // const docSnap = await getDoc(docRef);
-                            // if (!docSnap.exists()) {
-                            //     await setDoc(doc(db, "users", userdata.uid), {
-                            //     // name: userdata.displayName,
-                            //     // email: userdata.email,
-                            //     name:"kanshu",
-                            //     });
-                            // }
-                            router.push("/signupAbout");
-                            setIsLoading(false);
-                        }}
-                        disabled={isLoading}
-                    >
-                        新規登録{loading && "中"}
-                    </button>
+            <button
+                type="submit"
+                className={css({
+                    bgColor:"main",
+                    w:"150px",
+                    padding:"8px 0",
+                    fontWeight:"bold",
+                    color:"base",
+                    borderRadius:"8px",
+                })}
+                onClick={async (e) => {
+                    e.preventDefault();
+                    setIsLoading(true);
+                    await signInWithEmailAndPassword(email, password);
+                    setIsLoading(false);
+                }}
+                disabled={isLoading}
+            >
+                ログイン{loginLoading && "中"}
+            </button>
+            <Link href={"/signup"} >
+                <button
+                    className={css({
+                        bgColor:"base",
+                        w:"150px",
+                        padding:"8px 0",
+                        fontWeight:"bold",
+                        color:"main",
+                        border:"3px solid",
+                        borderRadius:"8px",
+                        })}
+                    disabled={isLoading}
+                >
+                    新規登録{loading && "中"}
+                </button>
+            </Link>
             </form>
         </div>
     );

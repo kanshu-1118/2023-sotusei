@@ -8,6 +8,7 @@ import ReadyRide from "./components/readyRide"
 export default function Home() {
   return (
     <main className={css({
+      paddingTop:"16px"
     })}>
       {/* <div className={css({
         backgroundColor: "red",
@@ -28,7 +29,7 @@ export default function Home() {
         position:"fixed",
         bottom:"51px",
         right:"0px",
-        left:"0px",
+        left:"0px"
         margin:"auto"
       })}>
         <p>ボタン</p>

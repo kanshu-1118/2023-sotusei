@@ -8,6 +8,7 @@ import ReadyRide from "./components/readyRide"
 export default function Home() {
   return (
     <main className={css({
+      paddingTop:"16px"
     })}>
       {/* <div className={css({
         backgroundColor: "red",

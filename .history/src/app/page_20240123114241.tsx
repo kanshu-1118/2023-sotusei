@@ -3,37 +3,26 @@
 
 import { css } from "../../styled-system/css"
 import { flex } from "../../styled-system/patterns"
-import ReadyRide from "./components/readyRide"
 
 export default function Home() {
   return (
-    <main className={css({
-    })}>
+    <main>
       {/* <div className={css({
         backgroundColor: "red",
         borderRadius: "9999px",
         fontSize: "13px",
         padding: "10px 15px",
       })}></div> */}
-      <button type="button" className={css({
+      <div className={css({
         display:"flex",
-        width:"326px",
-        height:"48px",
+        width:"144px",
+        height:"64px",
         bgColor:"tomato",
         alignItems:"center",
-        justifyContent:"center",
-        color:"white",
-        borderRadius:"24px",
-        cursor:"pointer",
-        position:"fixed",
-        bottom:"51px",
-        right:"0px",
-        left:"0px",
-        margin:"auto"
+        justifyContent:"center"
       })}>
         <p>ボタン</p>
-      </button>
-      <ReadyRide />
+      </div>
     </main>
   )
 }

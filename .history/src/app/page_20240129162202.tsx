@@ -6,7 +6,7 @@ import { useState } from "react"
 import { css } from "../../styled-system/css"
 import { flex } from "../../styled-system/patterns"
 import ReadyRide from "./components/readyRide"
-import QRCodeScanner from "./components/QRCodeScanner";
+import QrCodeReader from "./components/qrCodeReader";
 
 export default function Home() {
   const [modal, setModal] = useState(false);
@@ -18,7 +18,7 @@ export default function Home() {
   const stopPropagation = (e:any) => e.stopPropagation();
   return (
     <main>
-      <QRCodeScanner />
+      <QrCodeReader />
       <button type="button" onClick={openModal} className={css({
         display:"flex",
         width:"326px",

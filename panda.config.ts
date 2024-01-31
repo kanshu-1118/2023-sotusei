@@ -23,17 +23,28 @@ export default defineConfig({
           "to":{ bottom:"0%"}
         }
       },
-      tokens:{
+      tokens: {
         animations:{
-          fadeIn:{
-            value: "fadeIn .3s ease"
-          },
-          slideUp:{
-            value:"slideUp .3s ease forwards"
+          animations:{
+            fadeIn:{
+              value: "fadeIn .3s ease"
+            },
+            slideUp:{
+              value:"slideUp .3s ease forwards"
+            }
           }
-        }
+        },
+        colors: {
+          main : {value : "#F57F17"},
+          accent : {value : "#86E58A"},
+          red : {value : "#F15742"},
+          base : {value : "#FAFCFF"},
+          fontColor : {value : "#100F0F"},
+          gray:{value: "#D9D9D9"},
+        },
+
       }
-    },
+    }
   },
 
   // The output directory for your css system

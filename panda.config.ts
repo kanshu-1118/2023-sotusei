@@ -13,7 +13,18 @@ export default defineConfig({
   // Useful for theme customization
   theme: {
     extend: {
+      keyframes:{
+        slidein:{
+          "0%":{transform:"translateX(-100vw)"},
+          "100%":{transform:"translateX(0)"},
+        }
+      },
       tokens: {
+        animations:{
+          slidein: {
+            value: "slidein 1s ease"
+          }
+        },
         colors: {
           main : {value : "#F57F17"},
           accent : {value : "#86E58A"},
@@ -21,7 +32,8 @@ export default defineConfig({
           base : {value : "#FAFCFF"},
           fontColor : {value : "#100F0F"},
           gray:{value: "#D9D9D9"},
-        }
+        },
+
       }
     }
   },

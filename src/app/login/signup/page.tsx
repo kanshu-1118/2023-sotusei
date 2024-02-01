@@ -84,7 +84,7 @@ export default function LoginPage() {
                             //     name:"kanshu",
                             //     });
                             // }
-                            router.push("/signupAbout");
+                            router.push("/login/signupAbout");
                             setIsLoading(false);
                         }}
                         disabled={isLoading}

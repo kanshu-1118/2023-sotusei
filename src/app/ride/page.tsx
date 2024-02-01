@@ -3,14 +3,16 @@
 import Image from 'next/image'
 import styles from './page.module.css'
 import { useEffect, useState } from "react"
-import { css } from '../../styled-system/css'
-import { center } from '../../styled-system/patterns'
+import { css } from '../../../styled-system/css'
+import { center } from '../../../styled-system/patterns'
 import { GoogleMap, LoadScript , MarkerF } from "@react-google-maps/api";
-import ReadyRide from "./components/readyRide"
-import QRCodeScanner from "./components/QRCodeScanner";
+import ReadyRide from ".././components/readyRide"
+import QRCodeScanner from ".././components/QRCodeScanner";
 import Link from 'next/link'
 import { db } from "@/lib/firebase/index";
 import { collection, doc, getDoc, getDocs } from "firebase/firestore";
+import RideMeter from '../components/RideMeter'
+import ReturnBike from '../components/ReturnBike'
 
 const containerStyle = {
   width: "100%",
@@ -42,6 +44,14 @@ export default function Home() {
   const closeModal = () => setModal(false);
 
   const stopPropagation = (e:any) => e.stopPropagation();
+
+  const [modal2, setModal2] = useState(false);
+
+  const openModal2 = () => setModal2(true);
+
+  const closeModal2 = () => setModal2(false);
+
+  const stopPropagation2 = (e:any) => e.stopPropagation();
 
   const [data, setData] = useState<dataType[]>();
   const [modalName,setModalName] = useState("")
@@ -92,13 +102,17 @@ export default function Home() {
                     setModalSmall(item.small.true)
                     setModalMiddle(item.middle.true)
                     setModalFalseTotal(item.small.false + item.middle.false)
-                  }} icon={require("../images/mapPin.png")} />
+                  }} icon={require("../../images/mapPin.png")} />
                 ))}
               </>
             )}
+            {modal2 && 
+                <ReturnBike closeModal={closeModal2} modal2={modal2} />
+            }
           </GoogleMap>
         </LoadScript>
       </div>
+      <RideMeter />
       <button type="button"
         // onClick={() => {
         //   setShow(true)
@@ -120,52 +134,11 @@ export default function Home() {
       })}>
         <p></p>
         </button>
-        <div className={css({
-          position:"fixed",
-          top:"80px",
-          right:"16px",
-          display:"flex",
-          flexDir:"column",
-          borderRadius:"8px",
-          overflow:"hidden"
-        })}>
-          <button type="button"
-          onClick={() => {
-            setBike(true)
-          }}
-          className={css({
-            transition:"0.2s ease",
-            width:"50px",
-            height:"48px",
-            bgColor:bike ? "main" : "rgba(0 ,0, 0, 0.7)" ,
-            alignItems:"center",
-            justifyContent:"center",
-            color:"white",
-            cursor:"pointer",
-          })}>
-          </button>
-          <button type="button"
-            onClick={() => {
-              setBike(false)
-            }}
-            className={css({
-            transition:"0.2s ease",
-            width:"50px",
-            height:"48px",
-            bgColor:bike ? "rgba(0 ,0, 0, 0.7)" : "main",
-            alignItems:"center",
-            justifyContent:"center",
-            color:"white",
-            cursor:"pointer",
-            margin:"auto"
-          })}>
-          </button>
-        </div>
-      <Link href={"/qrleader"}>
+      {/* <Link href={"/qrleader"}> */}
         <button type="button"
-        // onClick={() => {
-        //   setShow(true)
-        // }}
+        onClick={() => {
+            openModal2()
+        }}
         className={css({
         display:"flex",
         width:"326px",
@@ -182,10 +155,10 @@ export default function Home() {
         left:"0px",
         margin:"auto"
       })}>
-        <p>ライドを開始する</p>
+        <p>ライドを修了する</p>
         </button>
         {/* <QRCodeScanner /> */}
-      </Link>
+      {/* </Link> */}
       {/* <button type="button" onClick={openModal} className={css({
       display:"flex",
       width:"326px",

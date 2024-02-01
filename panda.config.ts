@@ -14,15 +14,29 @@ export default defineConfig({
   theme: {
     extend: {
       keyframes:{
-        slidein:{
-          "0%":{transform:"translateX(-100vw)"},
-          "100%":{transform:"translateX(0)"},
+        fadeIn:{
+          "from":{opacity:"0"},
+          "to":{opacity:"1"}
+        },
+        slideUp:{
+          "from":{bottom:"-100%"},
+          "to":{ bottom:"0%"}
+        },
+        slideDown:{
+          "from":{bottom:"0%"},
+          "to":{ bottom:"-100%"}
         }
       },
       tokens: {
         animations:{
-          slidein: {
-            value: "slidein 1s ease"
+          fadeIn:{
+            value: "fadeIn .3s ease"
+          },
+          slideUp:{
+            value:"slideUp .3s ease forwards"
+          },
+          slideDown:{
+            value:"slideDown .3s ease forwards"
           }
         },
         colors: {

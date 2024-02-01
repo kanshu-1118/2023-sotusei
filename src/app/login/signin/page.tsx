@@ -27,6 +27,7 @@ export default function LoginPage() {
     }
     return (
         <div className={center({h:"100vh",flexDir:"column",gap:"40px"})}>
+            <Image src="/image/rogo.jpg" alt="" width={"240"} height={"100"} />
             <form className={center({
                 flexDir:"column",
                 gap:"12px",
@@ -77,7 +78,7 @@ export default function LoginPage() {
             >
                 ログイン{loginLoading && "中"}
             </button>
-            <Link href={"/signup"} >
+            <Link href={"/login/signup"} >
                 <button
                     className={css({
                         bgColor:"base",

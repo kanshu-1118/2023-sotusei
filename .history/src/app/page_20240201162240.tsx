@@ -22,6 +22,7 @@ export default function Home() {
   const closeAccountInfo = () => setAccount(false)
 
   const stopPropagation = (e:any) => e.stopPropagation();
+  const stopAccountPropagation = (e:any) => e.stopPropagation();
   return (
     <main>
       {/* <QRCodeScanner /> */}
@@ -52,7 +53,7 @@ export default function Home() {
           zIndex:"10",
           animation:"fadeIn"
         })}>
-          <div onClick={stopPropagation}>
+          <div onClick={stopAccountPropagation}>
             <MyAccountInfo />
           </div>
         </div>

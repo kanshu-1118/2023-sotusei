@@ -13,13 +13,10 @@ import MyAccountInfo from "./components/myAccountInfo";
 
 export default function Home() {
   const [modal, setModal] = useState(false);
-  const [account,setAccount] = useState(false);
 
   const openModal = () => setModal(true);
-  const openAccountInfo = () => {setAccount(true);}
 
   const closeModal = () => setModal(false);
-  const closeAccountInfo = () => setAccount(false)
 
   const stopPropagation = (e:any) => e.stopPropagation();
   return (
@@ -27,8 +24,8 @@ export default function Home() {
       {/* <QRCodeScanner /> */}
       {/* <RideMeter /> */}
       {/* <ReturnBike /> */}
-      {/* <MyAccountInfo /> */}
-      <button type="button" onClick={openAccountInfo} className={css({
+      <MyAccountInfo />
+      <button type="button" onClick={openModal} className={css({
                 display:"flex",
                 width:"200px",
                 height:"48px",
@@ -39,8 +36,8 @@ export default function Home() {
                 borderRadius:"24px",
                 cursor:"pointer",
       })}>マイページ</button>
-      {account && (
-        <div onClick={closeAccountInfo} className={css({
+      {modal && (
+        <div onClick={closeModal} className={css({
           width:"100vw",
           height:"100vh",
           bgColor:"rgba(0,0,0,0.7)",
@@ -57,7 +54,7 @@ export default function Home() {
           </div>
         </div>
       )} 
-      <button type="button" onClick={openModal} className={css({
+      {/* <button type="button" onClick={openModal} className={css({
         display:"flex",
         width:"326px",
         height:"48px",
@@ -92,7 +89,7 @@ export default function Home() {
             <ReadyRide />
           </div>
         </div>
-      )}
+      )} */}
 
 
       {/* <button className={button({ size: "small", type: "default" })}></button> */}

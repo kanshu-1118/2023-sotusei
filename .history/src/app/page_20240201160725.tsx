@@ -22,6 +22,7 @@ export default function Home() {
   const closeAccountInfo = () => setAccount(false)
 
   const stopPropagation = (e:any) => e.stopPropagation();
+  const stopAcountPropagation = (e:any) => e.stopAcountPropagation();
   return (
     <main>
       {/* <QRCodeScanner /> */}
@@ -52,12 +53,12 @@ export default function Home() {
           zIndex:"10",
           animation:"fadeIn"
         })}>
-          <div onClick={stopPropagation}>
+          <div onClick={stopAcountPropagation}>
             <MyAccountInfo />
           </div>
         </div>
       )} 
-      <button type="button" onClick={openModal} className={css({
+      {/* <button type="button" onClick={openModal} className={css({
         display:"flex",
         width:"326px",
         height:"48px",
@@ -92,7 +93,7 @@ export default function Home() {
             <ReadyRide />
           </div>
         </div>
-      )}
+      )} */}
 
 
       {/* <button className={button({ size: "small", type: "default" })}></button> */}
